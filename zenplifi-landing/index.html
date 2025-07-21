@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zenplifi | Coming Soon</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #0e4d53, #0b2c2f);
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+    .logo {
+      max-width: 150px;
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin: 10px 0;
+    }
+    .tagline {
+      font-style: italic;
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+    }
+    .countdown {
+      font-size: 2rem;
+      margin: 20px 0;
+    }
+    .progress-bar {
+      width: 80%;
+      background: rgba(255, 255, 255, 0.2);
+      height: 20px;
+      margin: 20px auto;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .progress {
+      height: 100%;
+      width: 60%; /* Adjust to show progress */
+      background: #00c2a8;
+    }
+    .ticker {
+      margin: 20px 0;
+      font-size: 1.1rem;
+    }
+    .signup {
+      margin: 30px 0;
+    }
+    input[type=email] {
+      padding: 10px;
+      width: 250px;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #00c2a8;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+    .qr {
+      margin-top: 20px;
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Replace with your hosted Zenplifi logo -->
+  <img src="https://via.placeholder.com/150?text=Zenplifi+Logo" alt="Zenplifi Logo" class="logo">
+  
+  <h1>Zenplifi</h1>
+  <div class="tagline">Smart Home Comfort. <i>Powered by DeFi.</i></div>
+
+  <div class="countdown" id="countdown">Loading countdown...</div>
+
+  <div class="progress-bar">
+    <div class="progress"></div>
+  </div>
+  <div class="ticker">15 Investors • 10 Contractors • 25 Deals Ready</div>
+
+  <div class="signup">
+    <input type="email" placeholder="Enter your email for early access">
+    <button>Notify Me</button>
+  </div>
+
+  <!-- QR code leading to email -->
+  <a href="mailto:zenplifi@gmail.com">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?data=mailto:zenplifi@gmail.com&size=150x150" 
+         alt="QR Code" class="qr">
+  </a>
+
+  <script>
+    // Countdown timer
+    const launchDate = new Date("2025-08-30T00:00:00").getTime();
+    const countdownElement = document.getElementById("countdown");
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s until launch`;
+
+      if (distance < 0) {
+        countdownElement.innerHTML = "We are LIVE!";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
